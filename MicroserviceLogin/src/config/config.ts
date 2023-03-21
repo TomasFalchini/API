@@ -6,7 +6,7 @@ dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 export default {
   dbConnection: process.env.DB_MONGO_CONNENCTION || "",
   host: process.env.HOST || "127.0.0.1",
-  port: process.env.PORT || 8080,
+  port: process.env.PORT || 3001,
   env: "development",
   jwtKey: process.env.JWT_KEY || "",
   kafka: {
