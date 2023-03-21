@@ -30,10 +30,10 @@ export class KafkaEventBus implements EventBusInterface {
   };
 
   publish = async (chanel: string, data: UserDTO) => {
+    this.connect();
     if (!this.eventbus) {
       throw new Error("You have to connect to the event bus first");
     }
-
     const producer = this.eventbus.producer();
     try {
       await producer.connect();

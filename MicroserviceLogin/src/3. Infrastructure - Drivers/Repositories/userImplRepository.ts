@@ -13,8 +13,7 @@ export class UserImplementationRepository implements UserRepository {
 
   async registerUser({ mail, password }: UserEntity) {
     await this.userDataSource.create({ mail, password });
-    await this.eventBusImplementation.connect();
-    this.eventBusImplementation.publish("new-user-registered", { mail });
+    await this.eventBusImplementation.publish("new-user-registered", { mail });
     return "The user has been created";
   }
 
@@ -22,5 +21,4 @@ export class UserImplementationRepository implements UserRepository {
     const user = await this.userDataSource.findOne({ mail, password });
     return await this.tokenAuthImplementation.sign(user);
   }
-
 }
