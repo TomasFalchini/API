@@ -1,0 +1,18 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "API with microservices architecture to create and list users",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "microserviceA": "nodemon MicroserviceLogin/src/index.ts",
+    "microserviceB": "nodemon MicroserviceListUsers/src/index.ts",
+    "both": "concurrently \"npm run microserviceA\" \"npm run microserviceB\""
+  },
+  "author": "Tomás Falchini",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.21"
+  }
+}
